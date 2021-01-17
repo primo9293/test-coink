@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +8,20 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  pagina: string = 'Login';
 
-  constructor(private formBuilder: FormBuilder,)
-       {  this.buildForm(); }
+  data: any
+
+  constructor(private router: Router)
+       {  }
 
   ngOnInit(): void {
   }
 
-  private buildForm() {
-    this.form = this.formBuilder.group({
-      usuario: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-    });
-  }
-
-  guardar() {
-
+  getData(event) {
+    console.log('getDataLogin');
+    console.log('event', event);
+    this.router.navigate(['/validacion']);
   }
 
 }

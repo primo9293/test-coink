@@ -1,3 +1,27 @@
+/* html,
+body {
+    margin: 0;
+    height: 100%;
+    background: #004B40 0% 0% no-repeat padding-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    opacity: 1;
+} */
+
+
+/* html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+} */
+
+.component {
+    background: #004B40 0% 0% no-repeat padding-box;
+}
+
 .header_ayuda {
     padding: 10px;
     align-items: center;
@@ -31,7 +55,7 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 3px solid #1EEB00;
     opacity: 1;
-    width: 450px;
+    width: 460px;
     height: 380px;
     padding: 15px;
     /*     display: flex;
@@ -39,11 +63,20 @@
     justify-content: center; */
 }
 
+.caja_code {
+    width: 750px;
+    height: 420px;
+}
+
+.logo_escudo {
+    margin-top: 0;
+}
+
 .caja_text {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
 .caja_texto {
@@ -52,6 +85,22 @@
     font: normal normal bold 20px/23px Modern;
     color: #004B40;
     opacity: 1;
+}
+
+.validate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.validate_texto {
+    /* display: block;
+    justify-content: center; */
+    font: normal normal 20px/23px Arial;
+    color: #196F3D;
+    opacity: 1;
+    text-align: center;
 }
 
 .formulario {
@@ -79,7 +128,7 @@ mat-label {
     justify-content: center;
 }
 
-button {
+.button {
     border-radius: 24px;
     background: #1EEB00 0% 0% no-repeat padding-box;
     text-align: center;
@@ -131,4 +180,8 @@ button {
     font: normal normal normal 14px/13px Avenir Next LT Pro;
     color: #004B40;
     opacity: 1;
+}
+
+.center {
+    right: 0em;
 }

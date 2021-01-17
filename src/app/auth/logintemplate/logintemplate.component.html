@@ -1,0 +1,72 @@
+<div class="component">
+    <div class="header_ayuda">
+        <img src="../../../assets/img/pregunta.png" alt="" class="image">
+        <div class="header_texto">¿Necesitas Ayuda?</div>
+    </div>
+
+    <div class="logo">
+        <img src="../../../assets/img/coink.png" alt="">
+    </div>
+
+    <section class="datos">
+        <div class="caja">
+
+            <div class="logo" *ngIf="code" [ngClass]="{'logo_escudo': clase}">
+                <img src="../../../assets/img/escudo.png" alt="">
+            </div>
+
+            <div class="caja_text">
+                <span class="caja_texto">{{ textingr }}</span>
+            </div>
+
+            <div class="validate" *ngIf="code">
+                <span class="validate_texto">Un código de verificación fue enviado a tu correo, <br> por favor introducelo.</span>
+            </div>
+            <div class="formulario">
+
+                <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()">
+                    <div class="form-group row" *ngIf="!code">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput placeholder="" type="text" formControlName="usuario">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group row" *ngIf="!code">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput placeholder="" type="password" formControlName="password">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group row" *ngIf="code">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Ingresa tu código de verificación</mat-label>
+                            <input matInput placeholder="" type="text" formControlName="codigo">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="example-button-row">
+                        <button mat-raised-button type="submit" class="button" [ngClass]="{center: clase}">{{ boton }}</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="olvide" *ngIf="!code">
+                <span>Olvidé mi PIN</span>
+                <span>Olvidé mi número de celular empresarial</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="vincular">
+        <span>¿Quieres vincular tu empresa a Coink?</span>
+    </div>
+
+    <div class="footer">
+        <div class="footer_texto">Copyright 2020 Coink S.A.</div>
+    </div>
+</div>

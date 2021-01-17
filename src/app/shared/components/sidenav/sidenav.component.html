@@ -1,0 +1,42 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <div class="menu_lateral">
+
+            <div class="menu">
+                <h4>Menú</h4>
+            </div>
+
+            <table class="table table-bordered table_text">
+                <tr>
+                    <th><a mat-list-item [routerLink]=""> Dashboard </a></th>
+                </tr>
+                <tr>
+                    <th><a mat-list-item [routerLink]="'./'"> Consultas </a></th>
+                </tr>
+                <tr>
+                    <th><a mat-list-item [routerLink]=""> Retiros </a></th>
+                </tr>
+                <tr>
+                    <th><a mat-list-item [routerLink]=""> Reportes </a></th>
+                </tr>
+                <tr>
+                    <th><a mat-list-item [routerLink]=""> Actividades </a></th>
+                </tr>
+            </table>
+
+            <div class="cerrar">
+                <!-- <button mat-icon-button color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button> -->
+                <img src="../../../../assets/img/Cerrar sesion.png" alt="" class="img_cerrar">
+                <p>Cerrar Sesión</p>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

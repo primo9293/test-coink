@@ -1,0 +1,31 @@
+.caja {
+    border: black 2px solid;
+    width: 100%;
+}
+
+.header {
+    border: red 2px solid;
+    text-align: left;
+    font: normal normal bold 32px/39px Montserrat;
+    color: #1EEB00;
+    padding: 15px;
+}
+
+.af {
+    border: green 2px solid;
+}
+
+.ag {
+    border: blue 2px solid;
+}
+
+.ah {
+    border: yellow 2px solid;
+}
+
+.contai {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
