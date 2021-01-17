@@ -1,14 +1,88 @@
+.contai {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .caja {
-    border: black 2px solid;
     width: 100%;
 }
 
 .header {
-    border: red 2px solid;
     text-align: left;
     font: normal normal bold 32px/39px Montserrat;
     color: #1EEB00;
     padding: 15px;
+}
+
+.fechas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fechas_rango {
+    padding-left: 15px;
+}
+
+.example-button-row {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    width: 10%;
+}
+
+.button {
+    border: 1px solid #004B40;
+    border-radius: 2px;
+    background: #004B40 0% 0% no-repeat padding-box;
+    font: normal normal bold 14px/13px Montserrat;
+    color: #FFFFFF;
+    padding: 10px;
+    outline: none;
+    width: 80%;
+}
+
+.buttonv {
+    background: #1EEB00 0% 0% no-repeat padding-box;
+    color: #004B40;
+    border: 1px solid #1EEB00;
+}
+
+.consul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.consul_search {
+    padding-left: 15px;
+}
+
+.consul_input {
+    margin: 0;
+    width: 70%;
+}
+
+.consul_input input {}
+
+.example-full-width {
+    width: 100%;
+}
+
+.tabla_datos {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+.excel {
+    text-align: left;
+    font: normal normal bold 32px/39px Montserrat;
+    padding: 15px;
+    width: 15%;
 }
 
 .af {
@@ -21,11 +95,4 @@
 
 .ah {
     border: yellow 2px solid;
-}
-
-.contai {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 }

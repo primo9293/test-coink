@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatIconModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
+    MatPaginatorModule
   ],
   exports: [
     MatInputModule,
@@ -32,7 +36,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatIconModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

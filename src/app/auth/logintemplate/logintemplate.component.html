@@ -9,7 +9,7 @@
     </div>
 
     <section class="datos">
-        <div class="caja">
+        <div class="caja" [ngClass]="{'caja_code': clase}">
 
             <div class="logo" *ngIf="code" [ngClass]="{'logo_escudo': clase}">
                 <img src="../../../assets/img/escudo.png" alt="">
