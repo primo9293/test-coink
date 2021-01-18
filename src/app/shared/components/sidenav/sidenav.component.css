@@ -24,6 +24,10 @@
     opacity: 1;
 }
 
+.cerrar a {
+    color: red;
+}
+
 .img_cerrar {
     width: 20px;
     height: 20px;

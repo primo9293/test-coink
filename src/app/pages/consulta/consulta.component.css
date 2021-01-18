@@ -3,6 +3,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    background: white;
 }
 
 .caja {
@@ -83,16 +84,4 @@ table {
     font: normal normal bold 32px/39px Montserrat;
     padding: 15px;
     width: 15%;
-}
-
-.af {
-    border: green 2px solid;
-}
-
-.ag {
-    border: blue 2px solid;
-}
-
-.ah {
-    border: yellow 2px solid;
 }

@@ -28,14 +28,26 @@
                     <div class="form-group row" *ngIf="!code">
                         <mat-form-field class="example-full-width">
                             <mat-label>Usuario</mat-label>
-                            <input matInput placeholder="" type="text" formControlName="usuario">
+                            <input matInput placeholder="" type="text" formControlName="user_mail">
+                            <mat-error *ngIf="form.controls['user_mail'].hasError('required')">
+                                Campo requerido
+                            </mat-error>
+                            <mat-error *ngIf="correoNoValido">
+                                Correo no válido
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
                     <div class="form-group row" *ngIf="!code">
                         <mat-form-field class="example-full-width">
                             <mat-label>Contraseña</mat-label>
-                            <input matInput placeholder="" type="password" formControlName="password">
+                            <input matInput placeholder="" type="password" formControlName="user_password">
+                            <mat-error *ngIf="passField.hasError('required')">
+                                Campo requerido
+                            </mat-error>
+                            <mat-error *ngIf="passField.hasError('minlength')">
+                                El campo debe tener mas de 8 caracteres
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
@@ -43,10 +55,14 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Ingresa tu código de verificación</mat-label>
                             <input matInput placeholder="" type="text" formControlName="codigo">
+                            <mat-error *ngIf="form.controls['codigo'].hasError('required')">
+                                Por favor ingrese el código
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
                     <div class="example-button-row">
+                        <!-- <button mat-raised-button type="submit" class="button" [ngClass]="{center: clase}" [disabled]="!form.valid">{{ boton }}</button> -->
                         <button mat-raised-button type="submit" class="button" [ngClass]="{center: clase}">{{ boton }}</button>
                     </div>
                 </form>

@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
+
+import { AuthModule } from './auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { PagesModule } from './pages/pages.module';
 
 
@@ -17,7 +20,8 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     AuthModule,
     PagesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

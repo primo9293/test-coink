@@ -31,11 +31,25 @@ export class LogintemplateComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      usuario: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      user_mail: ['', [Validators.required, Validators.minLength(10), Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      user_password: ['', [Validators.required, Validators.minLength(8)]],
       codigo: ['',[]]
     });
   }
+
+  get correoNoValido(){
+    return this.form.get('user_mail').invalid && this.form.get('user_mail').touched;
+  }
+
+  get passField() {
+    return this.form.get('user_password');
+  }
+
+  /*   
+  get passNoValido(){
+    return this.form.get('user_password').invalid;
+  } 
+  */
 
   validarPagina(page) {
     if (page === 'Login') {
@@ -47,8 +61,9 @@ export class LogintemplateComponent implements OnInit {
       this.textingr = 'INGRESO SEGURO'
       this.boton = 'ENTRAR'
       this.clase = true
-      this.form.controls['usuario'].clearValidators();
-      this.form.controls['password'].clearValidators();
+      this.form.controls['user_mail'].clearValidators();
+      this.form.controls['user_password'].clearValidators();
+      this.form.controls['codigo'].setValidators(Validators.required);
     }
     this.titulo = page
   }
