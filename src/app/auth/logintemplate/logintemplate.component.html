@@ -5,10 +5,10 @@
     </div>
 
     <div class="logo">
-        <img src="../../../assets/img/coink.png" alt="">
+        <img src="../../../assets/img/coink.png" alt="" [routerLink]="'/login'">
     </div>
 
-    <section class="datos">
+    <section class="datos" *ngIf="!nofound">
         <div class="caja" [ngClass]="{'caja_code': clase}">
 
             <div class="logo" *ngIf="code" [ngClass]="{'logo_escudo': clase}">
@@ -29,11 +29,11 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Usuario</mat-label>
                             <input matInput placeholder="" type="text" formControlName="user_mail">
-                            <mat-error *ngIf="form.controls['user_mail'].hasError('required')">
+                            <mat-error *ngIf="correoNoValido.hasError('required')">
                                 Campo requerido
                             </mat-error>
-                            <mat-error *ngIf="correoNoValido">
-                                Correo no válido
+                            <mat-error *ngIf="correoNoValido.hasError('pattern') && !correoNoValido.hasError('required')">
+                                Usuario o Correo no válido
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -45,7 +45,7 @@
                             <mat-error *ngIf="passField.hasError('required')">
                                 Campo requerido
                             </mat-error>
-                            <mat-error *ngIf="passField.hasError('minlength')">
+                            <mat-error *ngIf="passField.hasError('minlength') && !passField.hasError('required')">
                                 El campo debe tener mas de 8 caracteres
                             </mat-error>
                         </mat-form-field>
@@ -55,8 +55,11 @@
                         <mat-form-field class="example-full-width">
                             <mat-label>Ingresa tu código de verificación</mat-label>
                             <input matInput placeholder="" type="text" formControlName="codigo">
-                            <mat-error *ngIf="form.controls['codigo'].hasError('required')">
+                            <mat-error *ngIf="codigoField.hasError('required')">
                                 Por favor ingrese el código
+                            </mat-error>
+                            <mat-error *ngIf="codigoField.hasError('minlength') && !codigoField.hasError('required')">
+                                El código debe ser de mas de 4 caracteres
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -78,7 +81,11 @@
 
     </section>
 
-    <div class="vincular">
+    <div class="logo" *ngIf="nofound">
+        <img src="../../../assets/img/404.png" alt="">
+    </div>
+
+    <div class="vincular" *ngIf="!nofound">
         <span>¿Quieres vincular tu empresa a Coink?</span>
     </div>
 

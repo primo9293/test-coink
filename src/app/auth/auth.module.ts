@@ -22,7 +22,8 @@ import { LogintemplateComponent } from './logintemplate/logintemplate.component'
     MaterialModule
   ],
   exports: [
-    LoginComponent    
+    LoginComponent,
+    LogintemplateComponent    
   ]
 })
 export class AuthModule { }

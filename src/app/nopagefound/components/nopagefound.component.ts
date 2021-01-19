@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NopagefoundComponent implements OnInit {
 
+  pagina: string = '404';
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

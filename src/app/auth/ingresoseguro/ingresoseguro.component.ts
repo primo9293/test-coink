@@ -18,8 +18,6 @@ export class IngresoseguroComponent implements OnInit {
   }
 
   validarCodigo(event) {
-    console.log('validarCodigoIngreso');
-    console.log('event', event);
     this.router.navigate(['/consulta']);
   }
 

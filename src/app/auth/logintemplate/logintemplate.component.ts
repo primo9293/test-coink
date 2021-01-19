@@ -21,6 +21,7 @@ export class LogintemplateComponent implements OnInit {
   textingr: string;
   boton: string;
   clase: boolean;
+  nofound: boolean;
 
   constructor(private formBuilder: FormBuilder,)
        {  this.buildForm(); }
@@ -38,12 +39,17 @@ export class LogintemplateComponent implements OnInit {
   }
 
   get correoNoValido(){
-    return this.form.get('user_mail').invalid && this.form.get('user_mail').touched;
+    return this.form.get('user_mail');
   }
 
   get passField() {
     return this.form.get('user_password');
   }
+
+  get codigoField() {
+    return this.form.get('codigo');
+  }
+
 
   /*   
   get passNoValido(){
@@ -56,20 +62,26 @@ export class LogintemplateComponent implements OnInit {
       this.code = false
       this.textingr = 'INGRESA A TU CUENTA'
       this.boton = 'INGRESAR'
-    } else {
+    } 
+    if (page === '404') {
+      this.nofound = true
+      this.form.controls['user_mail'].clearValidators();
+      this.form.controls['user_password'].clearValidators();
+      this.form.controls['codigo'].clearValidators();
+    }
+    if (page === 'IngresoSeguro') {
       this.code = true
       this.textingr = 'INGRESO SEGURO'
       this.boton = 'ENTRAR'
       this.clase = true
       this.form.controls['user_mail'].clearValidators();
       this.form.controls['user_password'].clearValidators();
-      this.form.controls['codigo'].setValidators(Validators.required);
+      this.form.controls['codigo'].setValidators([Validators.required, Validators.minLength(4)]);
     }
     this.titulo = page
   }
 
   guardar() {
-    console.log('EntroTemplate');
     if (this.form.valid) {
       this.datos.emit(this.form.value) 
       console.log('VálidoTemplate');

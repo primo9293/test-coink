@@ -44,6 +44,10 @@ body {
     margin: 20px;
 }
 
+.logo img {
+    cursor: pointer;
+}
+
 .datos {
     padding: 20px;
     align-items: center;

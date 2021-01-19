@@ -7,51 +7,53 @@
         <div class="header">
             <p>CONSULTAS COMPRAS CON EL COFRE</p>
         </div>
-        <div class="fechas">
-            <div class="fechas_rango">
-                <mat-form-field appearance="fill">
-                    <mat-label>Filtro de rango de fechas</mat-label>
-                    <mat-date-range-input [rangePicker]="picker">
-                        <input matStartDate placeholder="Start date">
-                        <input matEndDate placeholder="End date">
-                    </mat-date-range-input>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
+        <form autocomplete="off" [formGroup]="form">
+            <div class="fechas">
+                <div class="fechas_rango">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Filtro de rango de fechas</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate placeholder="Inicio Fecha" formControlName="fecha">
+                            <input matEndDate placeholder="Fin Fecha" formControlName="fecha">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+
+                <div class="example-button-row">
+                    <button mat-raised-button class="button" (click)="limpiar()">Limpiar Filtros</button>
+                </div>
+
             </div>
 
-            <div class="example-button-row">
-                <button mat-raised-button type="submit" class="button">Limpiar Filtros</button>
+            <div class="consul">
+                <!-- <div class=""> -->
+                <div class="consul_search">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Campo</mat-label>
+                        <mat-select formControlName="campo">
+                            <mat-option *ngFor="let data of datos" [value]="data.value">
+                                {{data.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="consul_input">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Buscar</mat-label>
+                        <input matInput placeholder="Buscar" formControlName="buscar">
+                    </mat-form-field>
+                </div>
+
+                <div class="example-button-row">
+                    <button mat-raised-button (click)="enviar()" class="button buttonv">Buscar</button>
+                </div>
+
+                <!-- </div> -->
             </div>
-
-        </div>
-
-        <div class="consul">
-            <!-- <div class=""> -->
-            <div class="consul_search">
-                <mat-form-field appearance="fill">
-                    <mat-label>Campo</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let data of datos" [value]="data.value">
-                            {{data.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div class="consul_input">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Buscar</mat-label>
-                    <input matInput placeholder="Buscar">
-                </mat-form-field>
-            </div>
-
-            <div class="example-button-row">
-                <button mat-raised-button type="submit" class="button buttonv">Buscar</button>
-            </div>
-
-            <!-- </div> -->
-        </div>
+        </form>
 
         <div class="tabla_datos">
             <div class="mat-elevation-z8">
@@ -102,7 +104,7 @@
         </div>
 
         <div class="excel">
-            <button mat-raised-button type="submit" class="button">Descargar Excel</button>
+            <button mat-raised-button class="button" (click)="exportarExcel()">Descargar Excel</button>
         </div>
     </div>
 </div>

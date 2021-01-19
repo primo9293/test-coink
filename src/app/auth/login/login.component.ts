@@ -21,14 +21,17 @@ export class LoginComponent implements OnInit {
   }
 
   getData(event) {
-    console.log('getDataLogin');
-    console.log('event', event);
 
     const {user_mail, user_password} = event
-/* 
-    this.serviceCoink.getQuery('/login', {user_mail, user_password})
-           .subscribe(res => console.log('res', res))
- */
+
+   /*  this.serviceCoink.getQuery('/login', {user_mail, user_password})
+           .subscribe(res => {
+              console.log('res', res)
+              // this.router.navigate(['/validacion']);
+            }, err => {
+            console.log(err)
+        }) */
+
     this.router.navigate(['/validacion']);
   }
 

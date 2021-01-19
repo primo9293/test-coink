@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Purchases } from '../../core/models/purchases.model';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+
 
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { CoinkService } from '../../core/services/coink.service';
+import { ExcelService } from '../../core/services/excel.service';
 
 
 @Component({
@@ -14,6 +18,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 
 export class ConsultaComponent implements OnInit {
+
+  form: FormGroup;
 
   datos = [
     {value: 'name', viewValue: 'Nombre'},
@@ -33,10 +39,55 @@ export class ConsultaComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
-    constructor() { }
+    constructor(private formBuilder: FormBuilder,
+      private serviceCoink: CoinkService,
+      private excelService: ExcelService) {
+      this.buildForm();
+     }
   
     ngOnInit(): void {
     }
+
+
+    private buildForm() {
+      this.form = this.formBuilder.group({
+        fecha: ['', [Validators.required]],
+        campo: ['', [Validators.required]],
+        buscar: ['',[Validators.required]]
+      });
+    }
+
+    enviar() {
+      // console.log(this.form.value);
+
+      if (this.form.valid) {
+          console.log('entro');
+          /*  
+            this.serviceCoink.getBuscarPurchases('/pockets/reports/transactions/purchases', this.form.value)
+                .subscribe(res => {
+                    console.log('res', res)
+                  }, err => {
+                  console.log(err)
+              }) 
+          */
+      }
+       
+    }
+
+    limpiar() {
+      this.form.patchValue({
+        fecha : '',
+        campo : '',
+        buscar : ''
+      })
+    }
+
+    exportarExcel() {
+      // console.log('entroExcel');
+
+      this.excelService.exportAsExcelFile(this.datos, 'Consulta');  
+    }
+
 
 }
 
