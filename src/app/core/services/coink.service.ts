@@ -15,29 +15,8 @@ export class CoinkService {
   apiKey = environment.apikey;
   jwt = environment.jwt;
 
-  textoSimple = {
-      "user_mail": "test@gmail.com",
-      "user_password": "123asd"
-  }
-
-  texto = {
-    credentials : {
-      "user_mail": "test@gmail.com",
-      "user_password": "123asd"
-     }
-  }
-  
-  texto_a = {
-    credentials : {
-      user_mail: 'as',
-      user_password: 'as'
-      }
-  }
-
   texto1: any
   texto2: any
-
-  array: [] = []
 
   private static CONFIG = {
     mode: mode.ECB,
@@ -51,58 +30,49 @@ export class CoinkService {
       return `${this.urlApi}${ query }?apiKey=${this.apiKey}`;  
     }
 
-    getQuery( query: string, data: any){
+    login( query: string, data: any){
       // const url = `${this.urlApi}${ query }?apiKey=${this.apiKey}`;
       const url = this.getUrl(query);
-  
-      console.log('data', data);
-      console.log('url',url);
+
+      console.log('Entro al servicio');
   
       const headers = new HttpHeaders({
         'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJBcGlLZXkiOiIyNTIxNTYiLCJWZXJzaW9uIjoiMSJ9.pPCapENz8Ddvq8VBMn7GyuXGsrdSFYoU7xMW9dlwh8A'
       });
-  
-      console.log('stringify',this.texto);
-      this.texto2 = this.encrypt(JSON.stringify(this.texto));
-  
-      // this.texto1 = this.encrypt(JSON.stringify(data));
+
+      const datos1 = {
+        "user_mail":"pruebatest@yopmail.com",
+        "user_password":"pwdTest123#"
+      }
+
+      this.texto2 = this.encrypt(JSON.stringify(datos1));
+      this.texto1 = this.encrypt(JSON.stringify({"user_mail":"pruebatest@yopmail.com","user_password":"pwdTest123#"}));
       // this.texto2 = this.encrypt(data);
       // this.texto2 = this.encrypt(JSON.stringify(data));
-      console.log('payload', this.texto2);
-      console.log('payload33',this.decrypt(this.texto2)); 
-  
-      this.array = this.texto2.split();
-      console.log('array',this.array);
-  
+      console.log('payload', this.texto1);
+      console.log('payload2', this.texto2);
+      console.log('payload33',this.decrypt(("MRSQHiMPBQpbmuvnRNy6QoYapruqQIScBBbfS2gBYv45bA+KCYfmLlRl/o1StXZjgOaawGwnijFIhr6267Lb8WQB/tVDKPaidLLwEBuhbQQ=")))
+      // console.log('payload44',this.decrypt(("E5F87cL9nP4N8s7qya3gEUOZGf5wvwZs0rpHjcj6gBj1I0Yzn/K+6piDFjGada7jg6waKdqkXnC9RWIGPm7UGhYZmVhfgqelm9iP13htpK0=")))
+   
       const user_mail = data.user_mail
       const user_password = data.user_password
   
-      const obb = {
-        credentials:  [
-          {
+      const datos = 
+         {
             user_mail,
             user_password,
-          }
-        ]
-      }
-  
-      const obbc = {
-        credentials:  
-          {
-            user_mail,
-            user_password,
-          }
-      }
-  
+         }
       
-      console.log('obbobb',obbc);
-      // const ob1 = this.encrypt(JSON.stringify(obb));
+       
+      console.log('datos',datos);
+      const ob1 = this.encrypt(JSON.stringify(datos));
+      // const ob11 = this.encrypt(datos);
       // const ob1 = JSON.stringify({ 'payload' : [obb]});
-      const cifrar = this.encrypt(JSON.stringify(obbc));
-      console.log('cifrar',cifrar);
+      // const cifrar = this.encrypt(JSON.stringify(obbc));
+      console.log('ob1',ob1);
       // const ob1 = JSON.stringify({ 'payload' : [obbc]});
-      const ob1 = JSON.stringify({ 'payload' : [cifrar]});
-      console.log('ob1', ob1);
+      // const ob1 = JSON.stringify({ 'payload' : [cifrar]});
+      // console.log('ob1', ob1);
       // const ob1 = this.encrypt(ob);
   
       // return this.http.get( url, { headers });
@@ -121,7 +91,7 @@ export class CoinkService {
         'Authorization': `Bearer ${this.jwt}`,
         // 'Access-Control-Allow-Origin': '*'
       });
-      console.log('credenJson', credenJson);
+      // console.log('credenJson', credenJson);
   
       const httheaders = new HttpHeaders(credenJson)
   
@@ -131,7 +101,7 @@ export class CoinkService {
       // return this.http.post( url, obb, {headers: (httheaders)} );
       // return this.http.post( url, { 'payload' : [ob1]}, {headers: (httheaders)} );
       // return this.http.post( url, { 'payload' : [ob1]} );
-      return this.http.post( url, { 'payload': cifrar} );
+      return this.http.post( url, { 'payload': ob1} );
       
       // return this.http.get(apiGifs);
   

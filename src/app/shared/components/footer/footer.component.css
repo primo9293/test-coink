@@ -1,0 +1,26 @@
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 15px;
+    background-color: #1EEB00;
+}
+
+.footer_texto {
+    text-align: right;
+    font: normal normal normal 14px/13px Avenir Next LT Pro;
+    color: #004B40;
+    opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+    .footer_texto {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .footer_texto {
+        text-align: center;
+    }
+}

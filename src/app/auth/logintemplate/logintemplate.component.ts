@@ -84,7 +84,7 @@ export class LogintemplateComponent implements OnInit {
   guardar() {
     if (this.form.valid) {
       this.datos.emit(this.form.value) 
-      console.log('VálidoTemplate');
+      // console.log('VálidoTemplate');
     }
 
   }

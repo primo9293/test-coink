@@ -5,13 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MaterialModule } from '../shared/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   ],
   exports: [
     HeaderComponent,
-    SidenavComponent    
+    SidenavComponent,
+    FooterComponent    
   ]
 })
 export class SharedModule { }
